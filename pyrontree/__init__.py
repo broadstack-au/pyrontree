@@ -13,16 +13,23 @@ class Tree:
 
     root: Node = field(default=None)
 
+    def _get_root(self):
+        if not self.root:
+            self.root = Node()
+
+        return self.root
+
     def add(self, node: Node, parent: Node = None) -> Node:
         """
         Add a new node to the tree, either at the root if parent is None or attached to the parent node
         """
         if not parent:
-            parent = self.root
+            parent = self._get_root()
 
         if not parent.children:
             parent.children = []
 
+        node.parent = parent
         parent.children.append(node)
 
     def move(self, node: Node, parent: typing.Optional[Node] = None) -> Node:
@@ -46,6 +53,9 @@ class Tree:
         if not node.parent:
             return
 
+        if not node.parent.children:
+            return
+
         _newchildren = [_node for _node in node.parent.children if _node.id != node.id]
         node.parent.children = _newchildren
         return
@@ -58,7 +68,7 @@ class Tree:
         """
 
         if not base:
-            base = self.root
+            base = self._get_root()
 
         if len(base.children) < 1:
             return None
@@ -94,7 +104,7 @@ class Tree:
         """
         Return the tree structure as a tree dict
         """
-        return self.root.export()
+        return self._get_root().export()
 
     def load_nodes(
         self, parent_node: Node, node_data: typing.List[typing.Dict]
