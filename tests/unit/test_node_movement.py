@@ -7,7 +7,9 @@ def test_node_attach():
 
     tree.add(node)
 
-    assert tree.find_by_id(node.id) is not None
+    found = tree.find_by_id(node.id)
+    assert found is not None
+    assert found.parent.id
 
 def test_node_attach_deeper():
 
