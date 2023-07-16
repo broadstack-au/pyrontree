@@ -4,7 +4,6 @@ import simpletree3 as si
 import random
 
 # Generate tree of abritray depth
-maxRootChildren = 5
 nNodes = 1000
 
 def generateRandomTree():
