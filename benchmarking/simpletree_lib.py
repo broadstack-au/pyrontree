@@ -5,30 +5,20 @@ import random
 
 # Generate tree of abritray depth
 maxRootChildren = 5
+nNodes = 1000
 
 def generateRandomTree():
     # Initial Nodes
     siTree = si.SimpleNode('root')
-    members = []
-    # Generate a random number children at the root
-    nNodes = random.randint(1,maxRootChildren)
-    for i in range(nNodes):
+    members = [siTree]
+    n = 1
+    while n <= nNodes:
         id = random.getrandbits(100)
         payload = random.getrandbits(10)
-        newNode = si.SimpleNode(key = id, parent = siTree, data = payload)
+        randomMember = random.choice(members)
+        newNode = si.SimpleNode(key = id, parent = randomMember, data = payload)
         members.append(newNode)
-    stages = [3,6,12,24,48,96,192,384]
-    # stages = [3,3,3]
-    for i in range(len(stages)):
-        n = stages[i]
-        newMembers = []
-        for nNew in range(n):
-            id = random.getrandbits(100)
-            payload = random.getrandbits(10)
-            randomMember = random.choice(members)
-            newNode = si.SimpleNode(key = id, parent = randomMember, data = payload)
-            newMembers.append(newNode)
-        members.extend(newMembers)
+        n = n+1
     return members, siTree
 
 def find_node_by_name():
