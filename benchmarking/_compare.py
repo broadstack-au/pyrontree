@@ -3,7 +3,7 @@ import tree_lib
 import simpletree_lib
 import timeit
 
-nTests = 1000
+nTests = 100
 
 print("Testing generateRandomTree {} times".format(nTests))
 
@@ -18,9 +18,9 @@ print("\nbigtree_lib    took {:.10f} seconds, on average each run took {:.10f} s
 print("tree_lib       took {:.10f} seconds, on average each run took {:.10f} seconds".format(t2, t2avg))
 print("simpletree_lib took {:.10f} seconds, on average each run took {:.10f} seconds".format(t3, t3avg))
 
-nTests = 1000
+nTests = 100
 
-print("\nTesting Find_All_Nodes_By_Name {} times".format(nTests))
+print("\nTesting Find_Every_Node_By_Name {} times".format(nTests))
 
 t1 = timeit.Timer(bigtree_lib.find_node_by_name).timeit(number = nTests)
 t2 = timeit.Timer(tree_lib.find_nodes_by_name).timeit(number = nTests)
@@ -33,7 +33,7 @@ print("\nbigtree_lib    took {:.10f} seconds, on average each run took {:.10f} s
 print("tree_lib       took {:.10f} seconds, on average each run took {:.10f} seconds".format(t2, t2avg))
 print("simpletree_lib took {:.10f} seconds, on average each run took {:.10f} seconds".format(t3, t3avg))
 
-nTests = 333
+nTests = 33
 
 print("\nTesting move_children {} times, each run moves 30 children".format(nTests))
 

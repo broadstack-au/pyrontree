@@ -4,21 +4,20 @@ import bigtree as bt
 import random
 
 # Generate tree of abritray depth
-maxNodeSize = 5
-maxDepth = 10
+maxRootChildren = 5
 
 def generateRandomTree():
     # Initial Nodes
     btTree = bt.Node('root')
     members = []
     # Generate a random number children at the root
-    nNodes = random.randint(1,maxNodeSize)
+    nNodes = random.randint(1,maxRootChildren)
     for i in range(nNodes):
         id = str(random.getrandbits(100))
         payload = random.getrandbits(10)
         newbtNode = bt.Node(id, payload = payload, parent = btTree)
         members.append(newbtNode)
-    stages = [3,6,12,24,48]
+    stages = [3,6,12,24,48,96,192,384]
     # at each stage create a set number of children on random nodes
     for i in range(len(stages)):
         n = stages[i]
