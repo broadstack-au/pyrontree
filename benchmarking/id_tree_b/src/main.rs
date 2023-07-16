@@ -51,7 +51,16 @@ pub fn generate_random_tree() -> (Vec<NodeId>, Tree<i32>) {
     return (node_id_store, tree);
 }
 
+pub fn find_nodes_by_name() {
 
+    let (node_id_store, tree) = generate_random_tree();
+    println!("{}", node_id_store.len());
+    for node_id in &node_id_store {
+        let _node_ref_result: Result<&Node<i32>, NodeIdError> = tree.get(node_id);
+    }
+}
+
+//  Reference for #[Bench]
 // https://doc.rust-lang.org/nightly/unstable-book/library-features/test.html
 
 
@@ -67,7 +76,8 @@ mod tests {
 
     #[test]
     fn tree_works() {
-
+        let (node_id_store, tree) = generate_random_tree();
+        assert_eq!(node_id_store.len(), 1000);
     }
 
     #[bench]
@@ -78,6 +88,11 @@ mod tests {
     #[bench]
     fn bench_generate_random_tree(b: &mut Bencher) {
         b.iter(|| generate_random_tree());
+    }
+
+    #[bench]
+    fn bench_find_nodes_by_name(b: &mut Bencher) {
+        b.iter(|| find_nodes_by_name());
     }
    
 }
