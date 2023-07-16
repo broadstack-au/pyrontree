@@ -72,10 +72,10 @@ Only track time, not memory.
 
 Note: the Rust benchmark packa isn't particularly transparent with what's going on.
 
-1. Generate - ?? BenchMark Function Calls (each call generates a random tree with 1000 nodes)
-    - id_tree took 74,208 ns/iter (+/- 3,082) ~0.000074208 seconds (roughly 18x faster than fastest python version)
+1. Generate (currently no payload) - ?? BenchMark Function Calls (each call generates a random tree with 1000 nodes)
+    - id_tree took 74,208 ns/iter (+/- 3,082) ~0.000074208 seconds (roughly 18x faster than fastest python version, ~40x faster than the slowest)
 
-2. Find - ?? BenchMark Function Calls ()
+2. Find - ?? BenchMark Function Calls (each call finds EVERY node in the tree, once)
     - id_tree took 75,450 ns/iter (+/- 5,890) ~0.000075450 seconds (roughly 50x faster than the fastest python - ~5000x faster than the slowest)
 
 3. Move - TBD
