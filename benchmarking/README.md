@@ -62,20 +62,19 @@ Only track time, not memory.
 1. Tree_lib implements a dictionary lookup for retrieving the nodes by ID, all other libraries are doing a tree traversal. (I'm pretty sure I haven't buggered up the benchmark function).
 
 From: https://github.com/caesar0301/treelib/blob/master/treelib/tree.py 
-`
-    line 507:
-    def get_node(self, nid):
-        """
-        Get the object of the node with ID of ``nid``.
 
-        An alternative way is using '[]' operation on the tree. But small difference exists between them:
-        ``get_node()`` will return None if ``nid`` is absent, whereas '[]' will raise ``KeyError``.
-        """
-        if nid is None or not self.contains(nid):
-            return None
-        return self._nodes[nid]
-    
+    line 507:
+        def get_node(self, nid):
+            """
+            Get the object of the node with ID of ``nid``.
+
+            An alternative way is using '[]' operation on the tree. But small difference exists between them:
+            ``get_node()`` will return None if ``nid`` is absent, whereas '[]' will raise ``KeyError``.
+            """
+            if nid is None or not self.contains(nid):
+                return None
+            return self._nodes[nid]
+        
     line 83: 
-    #: dictionary, identifier: Node object
+        #: dictionary, identifier: Node object
         self._nodes = {}
-`
