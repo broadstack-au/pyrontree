@@ -57,16 +57,22 @@ Only track time, not memory.
     - bigtree_lib    took 0.5745145000 seconds, on average each run took 0.0057451450 seconds
     - tree_lib       took 0.2648852500 seconds, on average each run took 0.0026488525 seconds
     - simpletree_lib took 0.1415566250 seconds, on average each run took 0.0014155662 seconds
+    - anytree_lib    took 0.2270340830 seconds, on average each run took 0.0022703408 seconds
 
 2. Find - 100 BenchMark Function Calls (each call finds EVERY node in the tree, once)
     - bigtree_lib    took 29.8481149580 seconds, on average each run took 0.2984811496 seconds
     - tree_lib       took 0.2721500830 seconds, on average each run took 0.0027215008 seconds
     - simpletree_lib took 28.6300255830 seconds, on average each run took 0.2863002558 seconds
+    - anytree_lib    took 38.2622381250 seconds, on average each run took 0.3826223813 seconds
+        -note: anytree is returning multiple entries for anytree.find and errors out (it checks to make sure it's only returning one)
+        -      this test runs anytree.findall which means it does a full traversal every time.
 
 3. Move - 33 BenchMark Function Calls (each call moves 30 nodes to random locations)
     - bigtree_lib    took 0.1900671670 seconds, on average each run took 0.0057596111 seconds
     - tree_lib       took 0.0924006250 seconds, on average each run took 0.0028000189 seconds
     - simpletree_lib took 0.0481395410 seconds, on average each run took 0.0014587740 seconds
+    - anytree_lib    took 0.0793578750 seconds, on average each run took 0.0024047841 seconds
+        -note: see above note on anytree.find
 
 ### Results (Rust):
 
