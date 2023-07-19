@@ -31,6 +31,14 @@
     - install cmd: 
         - pip install simpletree3
 
+3. anytree - Version : 2.8.0
+    - Repo:
+        - https://github.com/c0fec0de/anytree
+    - Doco:
+        - https://anytree.readthedocs.io/en/latest/index.html
+    - install cmd: 
+        - pip install anytree
+
 ### Libraries (rust):
 
 4. id_tree - Version : 1.8.0
